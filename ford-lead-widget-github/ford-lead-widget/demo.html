@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo widget lead Ford Interauto</title>
+<style>
+  body{margin:0;padding:32px 16px;background:#f2f4f8;font-family:"Helvetica Neue",Arial,sans-serif;color:#00095b}
+  main{max-width:680px;margin:0 auto}
+  h1{font-size:28px;margin:0 0 8px}
+  h2{font-size:20px;margin:40px 0 12px}
+  p{line-height:1.5}
+</style>
+</head>
+<body>
+<main>
+  <h1>Demo widget di qualificazione lead</h1>
+  <p>Pagina di prova per lo sviluppo: carica lo script da <code>src/</code>. Apri la console per vedere l’evento <code>ford-lead:complete</code>.</p>
+
+  <h2>Auto, con form contatti integrato</h2>
+  <div data-ford-lead-widget data-product="auto"></div>
+
+  <h2>Veicoli commerciali, con form contatti integrato</h2>
+  <div data-ford-lead-widget data-product="pro"></div>
+</main>
+
+<script src="src/ford-lead-widget.js"></script>
+<script>
+  document.addEventListener("ford-lead:complete", function (e) {
+    console.log("Lead:", e.detail.segment, e.detail.score, e.detail.tags, e.detail.summary);
+  });
+</script>
+</body>
+</html>
